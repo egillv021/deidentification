@@ -14,7 +14,7 @@ class TextTransformer:
             'de': GermanNER(),
         }
 
-    def transform_text(self, text: str, language: str|None = None) -> str:
+    def transform_text(self, text: str, language: str|None = None) -> tuple(str, str):
         # Check if language is provided, otherwise detect it
         if not language:
             language = self.language_detector.detect_language(text)

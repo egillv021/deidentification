@@ -10,7 +10,9 @@ class EnglishNER(BaseNERMasking):
         Load the English NER model.
         """
         try:
-            return spacy.load(self.model_name)
+            ner_model = spacy.load(self.model_name)
+            ner_model.add_pipe("merge_entities")
+            return ner_model
         except Exception as e:
             raise Exception(f"Failed to load the NER model '{self.model_name}': {e}")
 
