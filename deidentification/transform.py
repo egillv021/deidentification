@@ -34,7 +34,7 @@ class TextTransformer:
         else:
             logging.warning(f"No NER model available for language: {language}")
 
-        return text
+        return text, language
 
 
 if __name__ == "__main__":
@@ -46,5 +46,5 @@ if __name__ == "__main__":
     ]
 
     for text in sample_texts:
-        transformed_text = transformer.transform_text(text)
-        print(f"Original: {text}\nTransformed: {transformed_text}\n")
+        transformed_text, language = transformer.transform_text(text)
+        print(f"Original: {text} in {language}\nTransformed: {transformed_text}\n")
